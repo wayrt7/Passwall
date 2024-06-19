@@ -14,7 +14,7 @@ echo "Running as root..."
 sleep 2
 clear
 
-uci set system.@system[0].zonename='Asia/Tehran'
+uci set system.@system[0].zonename='Asia/Shanghai'
 
 uci set network.wan.peerdns="0"
 
@@ -24,7 +24,7 @@ uci set network.wan.dns='1.1.1.1'
 
 uci set network.wan6.dns='2001:4860:4860::8888'
 
-uci set system.@system[0].timezone='<+0330>-3:30'
+uci set system.@system[0].timezone='<+0800>-8:00'
 
 uci commit system
 
@@ -103,17 +103,6 @@ opkg install kmod-tun
 echo -e "${GREEN}Done ! ${NC}"
 
 
->/etc/banner
-
-echo "    ___    __  ___________  __  ______  __________ ___________   __
-   /   |  /  |/  /  _/ __ \/ / / / __ \/ ___/ ___// ____/  _/ | / /
-  / /| | / /|_/ // // /_/ / /_/ / / / /\__ \\__ \ / __/  / //  |/ /
- / ___ |/ /  / // // _  _/ __  / /_/ /___/ /__/ / /____/ // /|  /
-/_/  |_/_/  /_/___/_/ |_/_/ /_/\____//____/____/_____/___/_/ |_/                                                                                                
-telegram : @AmirHosseinTSL" >> /etc/banner
-
-sleep 1
-
 
 RESULT=`ls /etc/init.d/passwall2`
 
@@ -157,7 +146,7 @@ echo -e "${GREEN} Xray : OK ${NC}"
 
  else
            
-rm -f amirhossein.sh && wget https://raw.githubusercontent.com/amirhosseinchoghaei/mi4agigabit/main/amirhossein.sh && chmod 777 amirhossein.sh && sh amirhossein.sh
+rm -f amirhossein.sh && wget https://raw.githubusercontent.com/wayrt7/Install-Xray-V2ray-On-Passwall-Openwrt/main/amirhossein.sh && chmod 777 amirhossein.sh && sh amirhossein.sh
 
 fi
 
@@ -222,53 +211,29 @@ uci set passwall2.myshunt.Direct='_direct'
 
 uci commit passwall2
 
-uci set system.@system[0].zonename='Asia/Tehran'
+uci set system.@system[0].zonename='Asia/Shanghai'
 
-uci set system.@system[0].timezone='<+0330>-3:30'
+uci set system.@system[0].timezone='<+0800>-8:00'
 
 uci commit system
 
-echo -e "${YELLOW} WiFi SSID : VPN 2G ${ENDCOLOR}"
-echo -e "${GREEN} Password : 10203040 ${ENDCOLOR}"
-echo -e "${YELLOW} WiFi SSID : VPN 5G ${ENDCOLOR}"
-echo -e "${GREEN} Password : 10203040 ${ENDCOLOR}"
 
 echo -e "${YELLOW}** Warning : ALL Settings Will be Change in 10 Seconds ** ${ENDCOLOR}"
 
-echo -e "${MAGENTA} Made With Love By : AmirHossein ${ENDCOLOR}"
-
 sleep 10
 
-uci delete wireless.radio0.disabled='1'
-uci set wireless.default_radio0.ssid='VPN 2G'
-uci set wireless.default_radio0.encryption='psk2+ccmp'
-uci set wireless.default_radio0.key='10203040'
-uci set wireless.default_radio0.mode='ap'
-uci set wireless.default_radio0.network='lan'
 
-uci commit wireless
-
-uci set system.@system[0].hostname=By-AmirHossein
-
-uci commit system
 
 uci set network.lan.proto='static'
 uci set network.lan.netmask='255.255.255.0'
-uci set network.lan.ipaddr='192.168.27.1'
+uci set network.lan.ipaddr='192.168.1.251'
 uci set network.lan.delegate='0'
 
 uci commit network
 
-uci set dhcp.@dnsmasq[0].rebind_domain='www.ebanksepah.ir 
-my.irancell.ir'
 
-uci commit
+echo -e "${YELLOW}** Warning : Router Will Be Reboot ... After That Login With New IP Address : 192.168.1.251 ** ${ENDCOLOR}"
 
-echo -e "${YELLOW}** Warning : Router Will Be Reboot ... After That Login With New IP Address : 192.168.27.1 ** ${ENDCOLOR}"
-
-echo -e "${YELLOW} WiFi SSID : VPN 2G ${ENDCOLOR}"
-
-echo -e "${GREEN} WiFi Key : 10203040 ${ENDCOLOR}"
 
 sleep 5
 

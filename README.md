@@ -26,7 +26,7 @@
 
 Run this command in openwrt remote ssh
 ```
-rm -f passwallx.sh && wget https://raw.githubusercontent.com/amirhosseinchoghaei/Passwall/main/passwallx.sh && chmod 777 passwallx.sh && sh passwallx.sh
+rm -f passwallx.sh && wget https://raw.githubusercontent.com/wayrt7/Passwall/main/passwallx.sh && chmod 777 passwallx.sh && sh passwallx.sh
 ```
 Done !
 
@@ -35,7 +35,7 @@ Done !
 
 - After installation , settings will be change :
  
-⚠️ LAN IP ADDRESS : `192.168.27.1`
+⚠️ LAN IP ADDRESS : `192.168.1.251`
 
 📶 WiFi 2Ghz SSID : `VPN 2G`
 
